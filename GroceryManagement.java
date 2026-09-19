@@ -11,11 +11,13 @@ public class GroceryManagement {
         itemPrices[0] = 1.42;
         itemStocks[0] = 20;
 
-        itemNames[0] = "Lean Ground Beef";
-        itemPrices[0] = 8.70;
-        itemStocks[0] = 14;
+        itemNames[1] = "Lean Ground Beef";
+        itemPrices[1] = 8.70;
+        itemStocks[1] = 14;
 
         Scanner input = new Scanner(System.in);
+
+        printInventory(itemNames, itemPrices, itemStocks);
 
         /*
          * TODO: Create User Menu 
@@ -38,6 +40,19 @@ public class GroceryManagement {
          * Requirement: Use an if-else statement inside the loop to only print slots that aren't
          * empty (e.g., if (names[i] != null)).
          */
+        if(names[0] == null){
+            System.out.println("There is no inventory. Plese restock!");
+        }else{
+            System.out.println("~~~~~~Inventory~~~~~~");
+            System.out.println("#: Name - Price, Stock");
+            System.out.println("------------------------");
+            for(int i = 0; i < 10; i++){
+                if(names[i] != null){
+                    System.out.println((i+1) + ": " + names[i] + " - $" + prices[i] + ", " + stocks[i]);
+                }
+            }
+        }
+
     }
 
     public static void restockItem(String[] names, int[] stocks, String target, int amount) {
