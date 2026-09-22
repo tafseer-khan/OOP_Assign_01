@@ -64,6 +64,22 @@ public class GroceryManagement {
          * Requirement: If the item isn't found after checking the whole loop, print
          * "Item not found."
          */
+          boolean found = false;
+
+        for (int i = 0; i < names.length; i++) {
+            if (names[i] != null && names[i].equalsIgnoreCase(target)) {
+                stocks[i] += amount;
+                System.out.println(
+                    target + " has been restocked. New stock: " + stocks[i]
+                );
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Item not found.");
+        }
     }
 
 }
