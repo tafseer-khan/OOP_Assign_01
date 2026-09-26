@@ -15,10 +15,6 @@ public class GroceryManagement {
         itemPrices[1] = 8.70;
         itemStocks[1] = 14;
 
-        Scanner input = new Scanner(System.in);
-
-        printInventory(itemNames, itemPrices, itemStocks);
-
         /*
          * TODO: Create User Menu 
          * Branch: feature-menu 
@@ -26,7 +22,38 @@ public class GroceryManagement {
          * Integration: Call the methods written in the
          * previous two tasks above based on the user's input (1 for View, 2 for Restock, 3 to Exit).
          */
+        Scanner input = new Scanner(System.in);
+        int menuInput;
+        System.out.println("Welcome to the Grocery Management program!");
+        do{
+            //menu prompt
+            System.out.println("\nWhat would you like to do?\n\t1. View\n\t2. Restock\n\t3. Exit\n");
+            menuInput = input.nextInt(); //take user input
 
+            switch(menuInput) {
+                case 1:
+                    //calls display method
+                    printInventory(itemNames, itemPrices, itemStocks);
+                    break;
+                case 2:
+                    input.nextLine(); //consumes leftover newline character
+                    //prompts for target item
+                    System.out.print("Enter target item: ");
+                    String target = input.nextLine();
+
+                    //promts for target amount
+                    System.out.print("Enter restock amount: ");
+                    int amount = input.nextInt();
+
+                    //calls restock method
+                    restockItem(itemNames, itemStocks, target, amount);
+                    break;
+                case 3:
+                    //exit program
+                    return;
+            }
+
+        } while (menuInput > 0 && menuInput < 4);
 
         input.close();
     }
