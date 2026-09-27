@@ -1,6 +1,16 @@
 import java.util.Scanner;
 
+/**
+ * 
+ * GroceryManagement defines a Grocery Management System, which includes 
+ * various items, which have their respective pricing and stock values
+ */
 public class GroceryManagement {
+    /**
+     * The main program of the Grocery Management system which simulates 
+     * the user functionality of viewing items and restocking 
+     * @param args
+     */
     public static void main(String[] args) {
         String[] itemNames = new String[10];
         double[] itemPrices = new double[10];
@@ -31,6 +41,14 @@ public class GroceryManagement {
         input.close();
     }
 
+    /**
+     * Prints the the list of items in the Grocery Store's inventory in a readable and 
+     * digestible way. 
+     * 
+     * @param names The ordered inventory name list
+     * @param prices The corresponding ordered inventory prices
+     * @param stocks The corresponding ordered inventory stock values
+     */
     public static void printInventory(String[] names, double[] prices, int[] stocks) {
         /*
         * TODO: Implement inventory display 
@@ -55,6 +73,14 @@ public class GroceryManagement {
 
     }
 
+    /**
+     * Increases the inventory stock of targeted item
+     * 
+     * @param names The ordered inventory name list
+     * @param stocks The corresponding ordered inventory stock values
+     * @param target The item which stock to update
+     * @param amount The amount of stock to add
+     */
     public static void restockItem(String[] names, int[] stocks, String target, int amount) {
         /*
          * TODO: Implement Restock & Search 
