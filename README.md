@@ -11,7 +11,7 @@
 - Setup up starter java file with organization, README
 
 ### Zach McCall 
-- 
+- Implemented Add Product Feature 
 
 ### Pujan Mijar 
 - Implement Restock Feature
