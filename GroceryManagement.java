@@ -31,7 +31,7 @@ public class GroceryManagement {
         do {
             // menu prompt
             System.out
-                    .println("\nWhat would you like to do?\n\t1. View\n\t2. Restock\n\t3. Exit\n");
+                    .println("\nWhat would you like to do?\n\t1. View\n\t2. Restock\n\t3. Add Item\n\t4. Exit\n");
             menuInput = input.nextInt(); // take user input
 
             switch (menuInput) {
@@ -53,8 +53,23 @@ public class GroceryManagement {
                     restockItem(itemNames, itemStocks, target, amount);
                     break;
                 case 3:
+                    // Add Item
+                    input.nextLine(); // consumes leftover newline character
+                    System.out.print("Enter item name: ");
+                    String name = input.nextLine();
+                    System.out.print("Enter item price: ");
+                    double price = input.nextDouble();
+                    System.out.print("Enter item stock: ");
+                    int stock = input.nextInt();
+                    addItem(itemNames, itemPrices, itemStocks, name, price, stock);
+                    break;
+                case 4:
                     // exit program
+                    System.out.println("Exiting program. Goodbye!");
                     return;
+                default:
+                    System.out.println("Invalid input. Please try again.");
+                    break;
             }
 
         } while (menuInput > 0 && menuInput < 4);
@@ -110,6 +125,18 @@ public class GroceryManagement {
         if (!found) {
             System.out.println("Item not found.");
         }
+    }
+    public static void addItem(String[] names, double[] prices, int[] stocks, String name, double price, int stock) {
+        for (int i = 0; i < names.length; i++) {
+            if (names[i] == null) {
+                names[i] = name;
+                prices[i] = price;
+                stocks[i] = stock;
+                System.out.println(name + " has been added to the inventory.");
+                return;
+            }
+        }
+        System.out.println("Inventory is full. Cannot add more items.");
     }
 
 }

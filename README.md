@@ -11,7 +11,7 @@
 - Setup up starter java file with organization, README
 
 ### Zach McCall 
-- N/A
+- 
 
 ### Pujan Mijar 
 - Implement Restock Feature
